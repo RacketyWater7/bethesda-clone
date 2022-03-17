@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import SearchAppBar from "./components/Home/SearchAppBar";
+import SearchAppBar from "./components/common/SearchAppBar";
 import { CssBaseline } from "@mui/material";
 
 const App = () => {
   return (
-    <React.Fragment>
+    <div style={{ overflowX: "hidden" }}>
       <CssBaseline />
       <SearchAppBar />
       <Routes>
@@ -14,7 +14,7 @@ const App = () => {
         {/* <Route path="/about" element={<h1>About</h1>} /> */}
         {/* <Route path="/contact" element={<h1>Contact</h1>} /> */}
       </Routes>
-    </React.Fragment>
+    </div>
   );
 };
 

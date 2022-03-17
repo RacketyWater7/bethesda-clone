@@ -17,6 +17,8 @@ import { Twitter } from "@mui/icons-material";
 import { Instagram } from "@mui/icons-material";
 import { YouTube } from "@mui/icons-material";
 import { CloseSharp } from "@mui/icons-material";
+import { Download } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -87,10 +89,15 @@ const ListColumn = styled("div")(({ theme }) => ({
   justifyContent: "space-around",
   // alignItems: ""
 }));
+const Footer = styled("div")(({ theme }) => ({
+  display: "flex",
+  // alignItems: "center",
+  justifyContent: "space-around",
+  flexDirection: "column",
+}));
 
 export default function SearchAppBar() {
   const [state, setState] = React.useState(false);
-
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -162,7 +169,6 @@ export default function SearchAppBar() {
                   { padding: "0" },
                   {
                     "&:hover": {
-                      color: "primary.main",
                       cursor: "pointer",
                     },
                   },
@@ -195,7 +201,16 @@ export default function SearchAppBar() {
               >
                 MODS
               </p>
-              <List sx={{ padding: "0" }}>
+              <List
+                sx={[
+                  { padding: "0" },
+                  {
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  },
+                ]}
+              >
                 {["Fallout 4", "Skyrim Special Edition"].map((text) => (
                   <ListItem key={text}>
                     <ListItemText secondary={text} />
@@ -214,7 +229,16 @@ export default function SearchAppBar() {
               >
                 COMMUNITY
               </p>
-              <List sx={{ padding: "0" }}>
+              <List
+                sx={[
+                  { padding: "0" },
+                  {
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  },
+                ]}
+              >
                 {["Community Hub", "DOOM Slayers Club"].map((text) => (
                   <ListItem key={text}>
                     <ListItemText secondary={text} />
@@ -231,7 +255,16 @@ export default function SearchAppBar() {
               >
                 NEWS
               </p>
-              <List sx={{ padding: "0" }}>
+              <List
+                sx={[
+                  { padding: "0" },
+                  {
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  },
+                ]}
+              >
                 {["Latest"].map((text) => (
                   <ListItem key={text}>
                     <ListItemText secondary={text} />
@@ -248,7 +281,16 @@ export default function SearchAppBar() {
               >
                 SHOP
               </p>
-              <List sx={{ padding: "0" }}>
+              <List
+                sx={[
+                  { padding: "0" },
+                  {
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  },
+                ]}
+              >
                 {["Digital Store", "Merchandise", "Redeem Code"].map((text) => (
                   <ListItem key={text}>
                     <ListItemText secondary={text} />
@@ -265,7 +307,16 @@ export default function SearchAppBar() {
               >
                 SUPPORT
               </p>
-              <List sx={{ padding: "0" }}>
+              <List
+                sx={[
+                  { padding: "0" },
+                  {
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  },
+                ]}
+              >
                 {["Service Status", "Help Site", "Manuals"].map((text) => (
                   <ListItem key={text}>
                     <ListItemText secondary={text} />
@@ -276,15 +327,67 @@ export default function SearchAppBar() {
           </ListColumn>
         </ListsContainer>
       </DrawerWrapper>
+
+      <Box
+        bgcolor="#f7f7f7"
+        px={{ xs: 5, sm: 7 }}
+        pt={{ xs: 5, sm: 10 }}
+        pb={4}
+      >
+        <Footer>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              {" "}
+              <Download sx={{ marginRight: "3px" }} />
+              {"Bethesda Launcher"}
+            </div>
+            <Button
+              size="large"
+              sx={{
+                border: "1px solid black",
+                borderRadius: "0",
+                px: {
+                  xs: 2,
+                  sm: 2,
+                  md: 5,
+                },
+              }}
+            >
+              DOWNLOAD
+            </Button>
+          </div>
+          <p
+            style={{
+              fontSize: "9px",
+              flex: "1",
+              alignSelf: "center",
+              paddingTop: "5px",
+            }}
+          >
+            OS: Windows 7 / 8 / 8.1 / 10 Processor: 2.5Ghz Intel Pentium 4 / AMD
+            Athlon 64 RAM: 1GB, Disk Space: 250MB
+          </p>
+        </Footer>
+      </Box>
     </Box>
   );
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Drawer anchor={"left"} open={state} onClose={toggleDrawer(false)}>
         {drawerContent()}
       </Drawer>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar color="primary">
           <IconButton
             onClick={toggleDrawer(true)}
@@ -302,7 +405,7 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            Bethesda
           </Typography>
           <Search>
             <SearchIconWrapper>
