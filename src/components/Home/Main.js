@@ -2,19 +2,19 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: "gray.100",
-  ...theme.typography.body2,
-  padding: 0,
-  margin: 0,
-  boxSizing: "border-box",
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: "gray.100",
+//   ...theme.typography.body2,
+//   padding: 0,
+//   margin: 0,
+//   boxSizing: "border-box",
+//   textAlign: "center",
+//   color: theme.palette.text.secondary,
+// }));
 const GridImage = styled(CardMedia)(({ theme }) => ({
   left: 0,
   top: 0,
